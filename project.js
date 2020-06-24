@@ -3,6 +3,8 @@ const titleElement = document.querySelector("#title");
 const authorElement = document.querySelector("#author");
 const urlElement = document.querySelector("#url");
 const pageElement = document.querySelector("#page");
+const publisherElement = document.querySelector("#publisher");
+const typeElement = document.querySelector("#type");
 const cardBody = document.querySelectorAll(".card-body")[1];
 const clear = document.getElementById("clear-books");
 
@@ -27,14 +29,16 @@ function addBook(e) {
     author = authorElement.value;
     url = urlElement.value;
     page = pageElement.value;
+    publisher = publisherElement.value;
+    type = typeElement.value;
 
-    if (title === "" || author === "" || url === "" || page === "") {
+    if (title === "" || author === "" || url === "" || page === "" || publisher === "" || type === "") {
 
         displayMessages("Lütfen tüm alanları eksiksiz doldurunuz.", "danger");
 
     } else {
 
-        const newBook = new Book(title, author, url, page);
+        const newBook = new Book(title, author, url, page, publisher, type);
 
         UI.addBookToUI(newBook);
 
@@ -43,7 +47,7 @@ function addBook(e) {
         UI.displayMessages("Kitap listeye başarıyla eklendi.", "success");
     }
 
-    UI.clearInputs(titleElement, authorElement, urlElement, pageElement);
+    UI.clearInputs(titleElement, authorElement, urlElement, pageElement, publisherElement, typeElement);
 
     e.preventDefault();
 }
@@ -53,7 +57,7 @@ function deleteBook(e) {
     if (e.target.id === "delete-kitap") {
 
         UI.deleteBookFromUI(e.target);
-        Storage.deleteBookFromToStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+        Storage.deleteBookFromToStorage(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
 
         UI.displayMessages("Kitap başarıyla silindi.", "success");
     }
