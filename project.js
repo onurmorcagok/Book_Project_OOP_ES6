@@ -10,6 +10,11 @@ eventListeners();
 function eventListeners() {
 
     form.addEventListener("submit", addBook);
+    document.addEventListener("DOMContentLoaded", function () {
+
+        let books = Storage.getBooksFromStorage();
+        UI.loadAllBooks(books);
+    })
 }
 
 function addBook(e) {
@@ -20,14 +25,20 @@ function addBook(e) {
 
     if (title === "" || author === "" || url === "") {
 
-        alertMessage("Lütfen tüm alanları eksiksiz doldurunuz.", "danger");
-    
+        displayMessages("Lütfen tüm alanları eksiksiz doldurunuz.", "danger");
+
     } else {
 
         const newBook = new Book(title, author, url);
 
-        UI.addBookToUI(addBook);
+        UI.addBookToUI(newBook);
+
+        Storage.addBookToStorage(newBook);
+
+        UI.displayMessages("Kitap listeye başarıyla eklendi.", "success");
     }
+
+    UI.clearInputs(titleElement, authorElement, urlElement);
 
     e.preventDefault();
 }
