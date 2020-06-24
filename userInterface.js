@@ -6,7 +6,7 @@ class UI {
 
         bookList.innerHTML +=
 
-            `
+        `
         <tr>
         <td><img src="${newBook.url}" class="img-fluid img-thumbnail"></td>
         <td>${newBook.title}</td>
