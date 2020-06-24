@@ -6,7 +6,7 @@ class UI {
 
         bookList.innerHTML +=
 
-        `
+            `
         <tr>
         <td><img src="${newBook.url}" class="img-fluid img-thumbnail"></td>
         <td>${newBook.title}</td>
@@ -37,12 +37,16 @@ class UI {
             <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kitabı Sil</a></td>
             </tr>
             `
-        });
+        })
     }
 
     static deleteBookFromUI(element) {
 
-        element.parentElement.parentElement.remove();
+        if (confirm(element.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent + " kitabını silmek istiyor musunuz ?")) {
+
+            element.parentElement.parentElement.remove();
+
+        } 
     }
 
     static clearAllBooksFromUI() {
