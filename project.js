@@ -34,7 +34,7 @@ function addBook(e) {
 
     if (title === "" || author === "" || url === "" || page === "" || publisher === "" || type === "") {
 
-        displayMessages("Lütfen tüm alanları eksiksiz doldurunuz.", "danger");
+        UI.displayMessages("Lütfen tüm alanları eksiksiz doldurunuz.", "danger");
 
     } else {
 
