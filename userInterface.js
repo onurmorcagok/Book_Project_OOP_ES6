@@ -28,7 +28,7 @@ class UI {
             <td><img src="${book.url}" class="img-fluid img-thumbnail"></td>
             <td>${book.title}</td>
             <td>${book.author}</td>
-            <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kitap Sil</a></td>
+            <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kaldır</a></td>
             </tr>
             `
         });
@@ -37,6 +37,18 @@ class UI {
     static deleteBookFromUI(element) {
 
         element.parentElement.parentElement.remove();
+    }
+
+    static clearAllBooksFromUI() {
+
+        const bookList = document.getElementById("books");
+
+        if (confirm("Tüm kitapları silmek istediğinize emin misiniz ?")) {
+
+            while (bookList.firstElementChild != null) {
+                bookList.removeChild(bookList.firstElementChild);
+            }
+        }
     }
 
     static clearInputs(element1, element2, element3) {

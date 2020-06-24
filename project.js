@@ -17,6 +17,7 @@ function eventListeners() {
     });
 
     cardBody.addEventListener("click", deleteBook);
+    clear.addEventListener("click", clearAllBook);
 }
 
 function addBook(e) {
@@ -47,11 +48,17 @@ function addBook(e) {
 
 function deleteBook(e) {
 
-    if(e.target.id === "delete-kitap"){
+    if (e.target.id === "delete-kitap") {
 
         UI.deleteBookFromUI(e.target);
-        Storage.deleteBookFromToStorage(e.target.parentElement.previousElementSibling.previousElementSibling);
+        Storage.deleteBookFromToStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
 
-        UI.displayMessages("Kitap başarıyla silindi." , "success");
+        UI.displayMessages("Kitap başarıyla silindi.", "success");
     }
+}
+
+function clearAllBook() {
+
+    UI.clearAllBooksFromUI();
+    Storage.clearAllBooksFromStorage();
 }

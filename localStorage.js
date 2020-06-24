@@ -39,4 +39,9 @@ class Storage {
 
         localStorage.setItem("books", JSON.stringify(books));
     }
+
+    static clearAllBooksFromStorage() {
+
+        localStorage.removeItem("books");
+    }
 }
