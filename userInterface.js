@@ -11,6 +11,7 @@ class UI {
         <td><img src="${newBook.url}" class="img-fluid img-thumbnail"></td>
         <td>${newBook.title}</td>
         <td>${newBook.author}</td>
+        <td>${newBook.page}</td>
         <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kitap Sil</a></td>
         </tr>
         `
@@ -28,6 +29,7 @@ class UI {
             <td><img src="${book.url}" class="img-fluid img-thumbnail"></td>
             <td>${book.title}</td>
             <td>${book.author}</td>
+            <td>${book.page}</td>
             <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kaldır</a></td>
             </tr>
             `
@@ -51,11 +53,12 @@ class UI {
         }
     }
 
-    static clearInputs(element1, element2, element3) {
+    static clearInputs(element1, element2, element3,element4) {
 
         element1.value = "";
         element2.value = "";
         element3.value = "";
+        element4.value = "";
 
     }
 

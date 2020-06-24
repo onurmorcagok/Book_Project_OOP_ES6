@@ -2,6 +2,7 @@ const form = document.getElementById("book-form");
 const titleElement = document.querySelector("#title");
 const authorElement = document.querySelector("#author");
 const urlElement = document.querySelector("#url");
+const pageElement = document.querySelector("#page");
 const cardBody = document.querySelectorAll(".card-body")[1];
 const clear = document.getElementById("clear-books");
 
@@ -25,14 +26,15 @@ function addBook(e) {
     title = titleElement.value;
     author = authorElement.value;
     url = urlElement.value;
+    page = pageElement.value;
 
-    if (title === "" || author === "" || url === "") {
+    if (title === "" || author === "" || url === "" || page === "") {
 
         displayMessages("Lütfen tüm alanları eksiksiz doldurunuz.", "danger");
 
     } else {
 
-        const newBook = new Book(title, author, url);
+        const newBook = new Book(title, author, url, page);
 
         UI.addBookToUI(newBook);
 
@@ -41,7 +43,7 @@ function addBook(e) {
         UI.displayMessages("Kitap listeye başarıyla eklendi.", "success");
     }
 
-    UI.clearInputs(titleElement, authorElement, urlElement);
+    UI.clearInputs(titleElement, authorElement, urlElement, pageElement);
 
     e.preventDefault();
 }
