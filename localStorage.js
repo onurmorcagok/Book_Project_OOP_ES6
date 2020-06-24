@@ -24,4 +24,19 @@ class Storage {
 
         return books;
     }
+
+    static deleteBookFromToStorage(bookTitle) {
+
+        let books = this.getBooksFromStorage();
+
+        // Splice Method
+
+        books.forEach(function (book, index) {
+            if (book.title === bookTitle) {
+                books.splice(index, 1);
+            }
+        });
+
+        localStorage.setItem("books", JSON.stringify(books));
+    }
 }

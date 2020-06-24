@@ -14,7 +14,9 @@ function eventListeners() {
 
         let books = Storage.getBooksFromStorage();
         UI.loadAllBooks(books);
-    })
+    });
+
+    cardBody.addEventListener("click", deleteBook);
 }
 
 function addBook(e) {
@@ -41,4 +43,15 @@ function addBook(e) {
     UI.clearInputs(titleElement, authorElement, urlElement);
 
     e.preventDefault();
+}
+
+function deleteBook(e) {
+
+    if(e.target.id === "delete-kitap"){
+
+        UI.deleteBookFromUI(e.target);
+        Storage.deleteBookFromToStorage(e.target.parentElement.previousElementSibling.previousElementSibling);
+
+        UI.displayMessages("Kitap başarıyla silindi." , "success");
+    }
 }

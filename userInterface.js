@@ -34,6 +34,11 @@ class UI {
         });
     }
 
+    static deleteBookFromUI(element) {
+
+        element.parentElement.parentElement.remove();
+    }
+
     static clearInputs(element1, element2, element3) {
 
         element1.value = "";
