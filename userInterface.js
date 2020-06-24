@@ -14,7 +14,7 @@ class UI {
         <td>${newBook.page}</td>
         <td>${newBook.publisher}</td>
         <td>${newBook.type}</td>
-        <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kitap Sil</a></td>
+        <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kitabı Sil</a></td>
         </tr>
         `
     }
@@ -34,7 +34,7 @@ class UI {
             <td>${book.page}</td>
             <td>${book.publisher}</td>
             <td>${book.type}</td>
-            <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kaldır</a></td>
+            <td><a href="#" id = "delete-kitap" class = "btn btn-danger">Kitabı Sil</a></td>
             </tr>
             `
         });
